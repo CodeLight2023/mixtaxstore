@@ -1,0 +1,111 @@
+#home {
+    width: 100%;
+    height: auto;
+    padding: 30px 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--main);
+    overflow-y: hidden;
+}
+#home .container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 0 0;
+}
+#home .container .banner-text {
+    width: 400px;
+    max-width: 100%;
+    height: auto;
+    padding: 30px;
+    margin: 20px 0;
+}
+#home .container .banner-text .top {
+    display: inline-block;
+    padding: 10px 15px 10px;
+    background: var(--main-2);
+    border-radius: 20px;
+    color: #fefefe;
+    font-size: 15px;
+    margin: 10px;
+}
+#home .container .banner-text h2 {
+    color: #fff;
+    font-size: 20px;
+    font-family: var(--poppins);
+    padding: 10px;
+}
+#home .container .banner-text a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 15px;
+    background: linear-gradient(to right, var(--main), var(--main-2));
+    box-shadow: 0 0 2px #fefefe73;
+    border-radius: 10px;
+    margin: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+#home .container .banner-text a svg {
+    font-size: 20px;
+}
+#home .container .banner-img {
+    width: 600px;
+    max-width: 100%;
+    position: relative;
+    text-align: center;
+    /* margin: 0 auto; */
+}
+#home .container .banner-img .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: var(--main-2);
+    border-radius: 50%;
+    z-index: 1;
+}
+#home .container .banner-img img {
+    width: 600px;
+    max-width: 100%;
+    position: relative;
+    z-index: 5;
+}
+@media (max-width: 1020px) {
+    /* #home .container {
+        justify-content: center;
+        gap: 30px;
+    } */
+    #home .container .banner-img {
+        width: 500px;
+    }
+    #home .container .banner-img .circle {
+        width: 380px;
+        height: 380px;
+    }
+}
+@media (max-width: 500px) {
+    #home .container .banner-img .circle {
+        width: 350px;
+        height: 350px;
+    }
+}
+@media (max-width: 450px) {
+    #home .container .banner-img .circle {
+        width: 300px;
+        height: 300px;
+    }
+}
+@media (max-width: 400px) {
+    #home .container .banner-img .circle {
+        width: 250px;
+        height: 250px;
+    }
+}

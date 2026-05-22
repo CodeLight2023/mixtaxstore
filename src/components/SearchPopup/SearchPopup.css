@@ -1,0 +1,82 @@
+.search-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.2);
+    z-index: 100;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.search-popup .popup {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100%);
+    animation: slideDown 0.5s ease-in-out forwards;
+}
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.search-popup .popup .search-box {
+    width: 500px;
+    max-width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+.search-popup .popup .search-box form {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.search-popup .popup .search-box form input {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    padding-right: 40px;
+    border-radius: 10px;
+    background: var(--white);
+    border: 0.5px solid var(--main-2);
+    font-size: 15px;
+    color: var(--black);
+}
+.search-popup .popup .search-box form button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--dark);
+    font-size: 25px;
+    cursor: pointer;
+}
+.search-popup .popup .search-box .closeBtn svg {
+    background: transparent;
+    color: var(--black);
+    font-size: 25px;
+    cursor: pointer;
+}

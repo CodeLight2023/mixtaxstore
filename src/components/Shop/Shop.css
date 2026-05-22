@@ -1,0 +1,108 @@
+#shop .shop-filter {
+    text-align: center;
+    margin: 30px auto;
+}
+#shop .shop-filter button {
+    display: inline-block;
+    padding: 10px 15px 10px;
+    border: 1px solid var(--main-2);
+    margin: 10px;
+    text-align: center;
+    font-family: var(--poppins);
+    background: transparent;
+    border-radius: 20px;
+    color: var(--black);
+    cursor: pointer;
+}
+#shop .shop-filter button.active {
+    background: var(--main);
+    color: var(--white);
+}
+#shop .product-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 30px 0;
+}
+#shop .product-container .products {
+    position: relative;
+    width: 400px;
+    max-width: 100%;
+    margin: 20px auto;
+    height: auto;
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+#shop .product-container .products .category {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    display: inline-block;
+    padding: 10px 12px;
+    background: var(--main-2);
+    border-radius: 20px;
+}
+#shop .product-container .products .category h5 {
+    font-size: 14px;
+    color: var(--white);
+    font-weight: 400;
+}
+#shop .product-container .products .product-img {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+#shop .product-container .products .product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+#shop .product-container .products .product-details {
+    padding: 10px;
+    margin: 10px;
+}
+#shop .product-container .products .product-details h2 {
+    font-size: 18px;
+    padding: 5px;
+}
+#shop .product-container .products .product-details p {
+    font-size: 15px;
+    color: var(--black);
+    padding: 5px;
+}
+#shop .product-container .products .product-details .price {
+    float: right;
+    margin: 10px 0;
+}
+#shop .product-container .products .product-details .price h3 {
+    font-size: 15px;
+    color: var(--black);
+}
+#shop .product-container .products .btn {
+    padding: 10px;
+    margin: 10px;
+}
+#shop .product-container .products .btn button {
+    width: 100%;
+    height: auto;
+    padding: 15px 10px;
+    background: var(--main-2);
+    color: var(--white);
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+#shop .product-container .products .btn button:hover {
+    background: var(--main);
+}
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.empty img {
+    width: 500px;
+    max-width: 100%;
+}
