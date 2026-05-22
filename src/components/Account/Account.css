@@ -6,6 +6,11 @@
     align-items: center;
     background: #fefefe;
 }
+#account .form-container {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
 #account .form-container form {
     width: 500px;
     max-width: 100%;
@@ -41,10 +46,13 @@
     font-weight: 700;
     color: #333;
 }
-#account .form-container form .box {
+#account .form-container form .input-box {
+    margin: 20px auto;
+}
+#account .form-container form .input-box .box {
     margin: 20px 0;
 }
-#account .form-container form .box input {
+#account .form-container form .input-box .box input {
     width: 100%;
     height: auto;
     padding: 15px 10px;
