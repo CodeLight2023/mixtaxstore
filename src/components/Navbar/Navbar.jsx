@@ -11,9 +11,10 @@ import './Navbar.css'
 import { useEffect, useContext } from "react";
 import { NavbarContext } from "../../context/NavbarContext/NavbarContext";
 import useAuthContext from "../../hook/useAuthContext";
+import SearchPopUp from "../SearchPopup/SearchPopup";
 
 function Navbar() {
-    const { NavLinkActive, menuOpen, toggleMenu, toggleSearchPopup } = useContext(NavbarContext);
+    const { NavLinkActive, menuOpen, toggleMenu, toggleSearchPopup, searchPopupOpen, } = useContext(NavbarContext);
     const { currentUser, logout } = useAuthContext();
     const handleProfileBtn = () => {
         const profileBox = document.querySelector('header nav .profile-box')
@@ -95,6 +96,7 @@ function Navbar() {
 
             </nav>
         </header>
+        {searchPopupOpen && <SearchPopUp toggleSearchPopup={toggleSearchPopup} />}
         </>
     )
 }
