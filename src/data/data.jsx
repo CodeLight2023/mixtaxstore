@@ -8,6 +8,7 @@ import handbag_2 from './../assets/img/handbag_2.jpg'
 import heel_1 from './../assets/img/heel_1.jpg'
 import samsung from './../assets/img/Samsung.webp'
 import empty from './../assets/img/empty.png'
+import InConstruction from './../assets/img/inConstructionWBg.png'
 export const menuList = [
     {
         id: crypto.randomUUID(),
@@ -99,4 +100,5 @@ export const assets = {
     canvas,
     heel_1,
     empty,
+    InConstruction,
 }
