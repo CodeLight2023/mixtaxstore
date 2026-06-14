@@ -92,6 +92,12 @@
     cursor: pointer;
     transition: 0.5s ease-in-out;
 }
+#shop .product-container .products .btn button.delete {
+    background: rgba(249, 31, 31, 0.847);
+}
+#shop .product-container .products .btn button.delete:hover {
+    background: #333;
+}
 #shop .product-container .products .btn button:hover {
     background: var(--main);
 }

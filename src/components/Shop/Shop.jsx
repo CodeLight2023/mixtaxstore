@@ -1,15 +1,10 @@
-import { useState } from "react"
-import { assets, products } from "../../data/data"
+import { assets } from "../../data/data"
+import useShopCart from "../../hook/useShopCart"
 import './Shop.css'
 function Shop() {
-    const [selectedCategory, setSelectedCategory] = useState("All")
-    const handleSeleectedCategory = (cat) => {
-        setSelectedCategory(cat)
-    }
-    // Creating an array of category from my product, so it going to select my product category and put it in an array, and remove all duplicate
-    const category = ["All", ...new Set(products.map((product) => product.category)), "Men", "Women"]
-
-    const filteredCategory = selectedCategory === "All" ? products : products.filter((product) => product.category == selectedCategory)
+    
+    const { category, selectedCategory, handleSeleectedCategory, filteredCategory, addToCart, existingCartItem} = useShopCart()
+    
     return (
         <>
             <section id="shop">
@@ -39,7 +34,12 @@ function Shop() {
                                     </div>
                                 </div>
                                 <div className="btn">
-                                    <button>Add to Cart</button>
+                                    {existingCartItem(product.id) ? (
+                                        <button class="delete" onClick={() => removeFromCart(product.id)}>Remove From Cart</button>
+                                    ) : (
+                                        <button onClick={() => addToCart(product.id)}>Add to Cart</button>
+                                    )}
+                                    
                                 </div>
                             </div>
                         ))

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { menuList } from "../../data/data";
 import { RxPerson } from "react-icons/rx";
 import { CiSearch } from "react-icons/ci";
@@ -61,7 +61,7 @@ function Navbar() {
                     </div>
                 </div>
                 <div className="logo">
-                    <NavLink to='/'><h2>Mixtas</h2></NavLink>
+                    <Link to='/'><h2>Mixtas</h2></Link>
                 </div>
                 <div className="menuBtnIcon">
                     {currentUser ? (
@@ -73,7 +73,7 @@ function Navbar() {
                         // </div>
                     ) : (
                             <div className="btn user">
-                                <NavLink to="/account"><RxPerson title="Account" /></NavLink>
+                                <Link to="/account"><RxPerson title="Account" /></Link>
                             </div>
                         )
                     }
@@ -81,8 +81,10 @@ function Navbar() {
                         <CiSearch title="search" />
                     </div>
                     <div className="btn cart" title="Cart">
-                        <AiOutlineShopping />
-                        <div className="badge">3</div>
+                        <Link to="/cart">
+                            <AiOutlineShopping />
+                            <div className="badge">3</div>
+                        </Link>
                     </div>
                     {currentUser && (
                         <div className="profile-box">

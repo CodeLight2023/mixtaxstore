@@ -9,6 +9,8 @@ import ShopPage from "./pages/Shop/Shop"
 import RootLayout from "./layout/RootLayout/RootLayout"
 import Error from "./error/Error"
 import Construction from "./pages/PageOnConstruction/Construction"
+import ShopCartContextProvider from "./context/ShopCartContext/ShopCartContextProvider"
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart"
 
 const router = createBrowserRouter (
   createRoutesFromElements (
@@ -16,6 +18,7 @@ const router = createBrowserRouter (
       <Route index element={<Home />} />
       <Route path="shop" element={<ShopPage />} />
       <Route path="account" element={<Account />} />
+      <Route path="cart" element={<ShoppingCart />} />
 
       <Route path="*" element={<Construction />} />
     </Route>
@@ -29,7 +32,9 @@ function App() {
         <AuthContextProvider>
           <NavbarContextProvider>
             <AccountContextProvider>
-              <RouterProvider router={router} />
+              <ShopCartContextProvider>
+                <RouterProvider router={router} />
+              </ShopCartContextProvider>
             </AccountContextProvider>
           </NavbarContextProvider>
         </AuthContextProvider>
