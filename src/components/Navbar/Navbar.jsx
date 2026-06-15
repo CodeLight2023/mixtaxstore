@@ -12,10 +12,12 @@ import { useEffect, useContext } from "react";
 import { NavbarContext } from "../../context/NavbarContext/NavbarContext";
 import useAuthContext from "../../hook/useAuthContext";
 import SearchPopUp from "../SearchPopup/SearchPopup";
+import useShopCart from "../../hook/useShopCart";
 
 function Navbar() {
     const { NavLinkActive, menuOpen, toggleMenu, toggleSearchPopup, searchPopupOpen, } = useContext(NavbarContext);
     const { currentUser, logout } = useAuthContext();
+    const { cartQuantity } = useShopCart()
     const handleProfileBtn = () => {
         const profileBox = document.querySelector('header nav .profile-box')
         profileBox.classList.toggle('active')
@@ -83,7 +85,7 @@ function Navbar() {
                     <div className="btn cart" title="Cart">
                         <Link to="/cart">
                             <AiOutlineShopping />
-                            <div className="badge">3</div>
+                            <div className="badge">{currentUser ? cartQuantity : 0 }</div>
                         </Link>
                     </div>
                     {currentUser && (

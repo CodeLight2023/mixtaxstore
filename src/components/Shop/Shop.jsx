@@ -1,9 +1,14 @@
 import { assets } from "../../data/data"
+import useAuthContext from "../../hook/useAuthContext"
 import useShopCart from "../../hook/useShopCart"
+import ConfirmWarningPopup from "../AlertPopup/ConfirmWarningPopup"
 import './Shop.css'
 function Shop() {
     
-    const { category, selectedCategory, handleSeleectedCategory, filteredCategory, addToCart, existingCartItem} = useShopCart()
+    const { category, selectedCategory, handleSeleectedCategory, filteredCategory, addToCart, existingCartItem, showConfirmAlert} = useShopCart()
+
+    const { currentUser } = useAuthContext()
+
     
     return (
         <>
@@ -34,11 +39,16 @@ function Shop() {
                                     </div>
                                 </div>
                                 <div className="btn">
-                                    {existingCartItem(product.id) ? (
-                                        <button class="delete" onClick={() => removeFromCart(product.id)}>Remove From Cart</button>
+                                    {currentUser ? (
+                                        existingCartItem(product.id) ? (
+                                            <button className="delete" onClick={() => showConfirmAlert("error", "Are you sure, you want to delete?", product.id)}>Remove From Cart</button>
+                                        ) : (
+                                            <button onClick={() => addToCart(product.id)}>Add to Cart</button>
+                                        )
                                     ) : (
                                         <button onClick={() => addToCart(product.id)}>Add to Cart</button>
                                     )}
+                                    
                                     
                                 </div>
                             </div>
@@ -50,6 +60,8 @@ function Shop() {
                     )}
                 </div>
             </section>
+
+            <ConfirmWarningPopup />
         </>
     )
 }

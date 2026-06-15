@@ -2,10 +2,19 @@ import { ShopCartContext } from './ShopCartContext'
 import { useState } from "react"
 import { products } from "../../data/data"
 import useAlertContext from "../../hook/useAlertContext"
+import useAuthContext from '../../hook/useAuthContext'
 function ShopCartContextProvider(props) {
     const [selectedCategory, setSelectedCategory] = useState("All")
-    const [cartItems, setCartItems] = useState([])
+    const [cartItems, setCartItems] = useState(() => {
+        return JSON.parse(localStorage.getItem("cartContent")) || [];
+    })
     const { showAlert } = useAlertContext()
+    const [ConfirmAlertType, setConfirmAlertType] = useState(null);
+    const [ConfirmAlertMsg, setConfirmAlertMsg] = useState(null);
+    const [ConfirmAlertActiveProductId, setConfirmAlertActiveProductId] = useState(null);
+    const cartQuantity = cartItems.length;
+    const { currentUser } = useAuthContext()
+
     const handleSeleectedCategory = (cat) => {
         setSelectedCategory(cat)
     }
@@ -19,26 +28,65 @@ function ShopCartContextProvider(props) {
     }
     
     const addToCart = (id) => {
-        setCartItems((items) => {
-            const existingItem = existingCartItem(items.id)
-            const product = products.find(product => product.id === id)
-            if(existingItem) {
-                showAlert("error", "Item already exists in cart");
-                return items
-            } else {
-                showAlert("success", "Successfully added to cart");
-                return [...items, product]
-            }
-        })
+        const currentUserName = currentUser ? currentUser.fullName : "Guest";
+        const cartContent = JSON.parse(localStorage.getItem("cartContent")) || []
+        const existingItem = cartContent.find(item => item.id == id && item.user == currentUserName)
+        const product = products.find(product => product.id === id)
+        if(!product) return;
+
+        if (!currentUser) {
+            showAlert("error", "Please log in to add items to the cart");
+            return;
+        }
+
+        if(existingItem) {
+            showAlert("error", "Item already exists in cart");
+            return;
+        }
+        const newCartItem = {...product, user: currentUserName}
+        const updatedCartContent = [...cartContent, newCartItem];
+        
+        localStorage.setItem("cartContent", JSON.stringify(updatedCartContent));
+        setCartItems((prevItems) => [...prevItems, newCartItem]);
+        showAlert("success", "Successfully added to cart");
     }
 
-    // const removeFromCart = (id) => {
-    //     setCartItems((items) => {
+    const removeFromCart = (id) => {
+        setCartItems((items) => {
+            return items.filter((item) => item.id !== id);
+        })
+
+        const cartContent = JSON.parse(localStorage.getItem("cartContent")) || [];
+        const updatedCartContent = cartContent.filter((item) => item.id !== id);
+        localStorage.setItem("cartContent", JSON.stringify(updatedCartContent));
+
+        setConfirmAlertType(null);
+        setConfirmAlertMsg(null);
+        showAlert("success", "Successfully Removed from cart");
         
-    //     })
-    // }
+    }
+
+    
+    const showConfirmAlert = (type, msg, id) => {
+        setConfirmAlertType(type);
+        setConfirmAlertMsg(msg);
+        setConfirmAlertActiveProductId(id);
+
+        // auto hide after 10s
+        setTimeout(() => {
+            setConfirmAlertType(null);
+            setConfirmAlertMsg(null);
+            setConfirmAlertActiveProductId(null);
+        }, 10000);
+    };
+    
+    const closeConfirmAlert = () => {
+        setConfirmAlertType(null);
+        setConfirmAlertMsg(null);
+        setConfirmAlertActiveProductId(null);
+    }
     return (
-        <ShopCartContext.Provider value={{selectedCategory, cartItems, handleSeleectedCategory, category, filteredCategory, addToCart, existingCartItem}}>
+        <ShopCartContext.Provider value={{ cartQuantity, selectedCategory, cartItems, handleSeleectedCategory, category, filteredCategory, addToCart, existingCartItem, removeFromCart, showConfirmAlert, closeConfirmAlert, ConfirmAlertMsg, ConfirmAlertType, ConfirmAlertActiveProductId}}>
             {props.children}
         </ShopCartContext.Provider>
     )

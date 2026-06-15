@@ -33,7 +33,7 @@ export const menuList = [
 ]
 export const products = [
     {
-        id: crypto.randomUUID(),
+        id: 1,
         name: 'Tshirt',
         category: 'Fashion',
         description: 'A comfortable and stylish t-shirt',
@@ -41,7 +41,7 @@ export const products = [
         image: tshirt_1,
     },
     {
-        id: crypto.randomUUID(),
+        id: 2,
         name: 'Tshirt',
         category: 'Fashion',
         description: 'A comfortable and stylish t-shirt',
@@ -49,7 +49,7 @@ export const products = [
         image: tshirt_2,
     },
     {
-        id: crypto.randomUUID(),
+        id: 3,
         name: 'Canvas',
         category: 'Footwear',
         description: 'A high grade canvas',
@@ -57,7 +57,7 @@ export const products = [
         image: canvas,
     },
     {
-        id: crypto.randomUUID(),
+        id: 4,
         name: 'HandBag',
         category: 'Accessories',
         description: 'A high grade Handbag',
@@ -65,7 +65,7 @@ export const products = [
         image: handbag,
     },
     {
-        id: crypto.randomUUID(),
+        id: 5,
         name: 'HandBag',
         category: 'Accessories',
         description: 'A high grade Handbag',
@@ -73,7 +73,7 @@ export const products = [
         image: handbag_2,
     },
     {
-        id: crypto.randomUUID(),
+        id: 6,
         name: 'High Heels',
         category: 'Footwear',
         description: 'A high grade Red High Heels',
@@ -81,7 +81,7 @@ export const products = [
         image: heel_1,
     },
     {
-        id: crypto.randomUUID(),
+        id: 7,
         name: 'SamSung S9+',
         category: 'Electronics',
         description: '8GB RAM, 128GB storage',
