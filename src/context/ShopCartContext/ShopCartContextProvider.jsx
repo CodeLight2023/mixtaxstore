@@ -43,7 +43,7 @@ function ShopCartContextProvider(props) {
             showAlert("error", "Item already exists in cart");
             return;
         }
-        const newCartItem = {...product, user: currentUserName}
+        const newCartItem = {...product, user: currentUserName, quantity: 1}
         const updatedCartContent = [...cartContent, newCartItem];
         
         localStorage.setItem("cartContent", JSON.stringify(updatedCartContent));
@@ -66,6 +66,63 @@ function ShopCartContextProvider(props) {
         
     }
 
+    const handleQuantityIncrement = (id) => {
+        const currentUserName = currentUser?.fullName || "Guest";
+
+        const cartContent = JSON.parse(localStorage.getItem("cartContent")) || [];
+
+        const updatedCart = cartContent.map(item => {
+
+            if(item.id == id && item.user == currentUserName) {
+                return {
+                    ...item,
+                    quantity: item.quantity + 1
+                };
+            }
+            return item;
+
+        });
+
+        setCartItems(updatedCart)
+
+        localStorage.setItem("cartContent", JSON.stringify(updatedCart));
+    };
+
+    const handleQuantityDecrement = (id) => {
+        const currentUserName = currentUser?.fullName || "Guest";
+
+        const cartContent = JSON.parse(localStorage.getItem("cartContent")) || [];
+        const item = cartContent.find(
+            i => i.id === id && i.user === currentUserName
+        );
+
+        if (!item) return;
+
+        if (item.quantity === 1) {
+            showConfirmAlert(
+                "error",
+                "Are you sure you want to delete?",
+                id
+            );
+            return;
+        }
+        
+        const updatedCart = cartContent.map(currentItem => {
+            if (currentItem.id == id && currentItem.user == currentUserName) {
+                return {...currentItem, quantity: currentItem.quantity - 1};
+            } 
+            return currentItem
+        });
+
+        const filteredCart = updatedCart.filter(
+            item => item.quantity > 0
+        );
+
+        setCartItems(filteredCart);
+        localStorage.setItem("cartContent",JSON.stringify(filteredCart));
+
+    }
+
     
     const showConfirmAlert = (type, msg, id) => {
         setConfirmAlertType(type);
@@ -77,7 +134,7 @@ function ShopCartContextProvider(props) {
             setConfirmAlertType(null);
             setConfirmAlertMsg(null);
             setConfirmAlertActiveProductId(null);
-        }, 10000);
+        }, 12000);
     };
     
     const closeConfirmAlert = () => {
@@ -86,7 +143,7 @@ function ShopCartContextProvider(props) {
         setConfirmAlertActiveProductId(null);
     }
     return (
-        <ShopCartContext.Provider value={{ cartQuantity, selectedCategory, cartItems, handleSeleectedCategory, category, filteredCategory, addToCart, existingCartItem, removeFromCart, showConfirmAlert, closeConfirmAlert, ConfirmAlertMsg, ConfirmAlertType, ConfirmAlertActiveProductId}}>
+        <ShopCartContext.Provider value={{ cartQuantity, selectedCategory, cartItems, handleSeleectedCategory, category, filteredCategory, addToCart, existingCartItem, handleQuantityIncrement, handleQuantityDecrement, removeFromCart, showConfirmAlert, closeConfirmAlert, ConfirmAlertMsg, ConfirmAlertType, ConfirmAlertActiveProductId}}>
             {props.children}
         </ShopCartContext.Provider>
     )

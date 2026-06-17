@@ -18,6 +18,12 @@
   --inter: "Inter", sans-serif;
   --poppins: "Poppins", sans-serif;
 }
+@view-transition {
+  navigation: auto;
+}
+::view-transition-group(root) {
+  animation-duration: 1s;
+}
 body {
   font-family: var(--inter);
 }
@@ -59,4 +65,53 @@ section {
 }
 .logout-btn:hover {
   background: #da4008cc;
+}
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.empty img {
+  width: 500px;
+  max-width: 100%;
+}
+.notloggedin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+}
+.notloggedin .notloggedinBox {
+  width: 500px;
+  height: auto;
+  padding: 20px;
+  box-shadow: 0 8px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.notloggedin .notloggedinBox h2 {
+  font-size: 20px;
+  font-family: var(--inter);
+  text-transform: capitalize;
+  color: var(--dark);
+  padding: 10px;
+}
+.notloggedin .notloggedinBox .acct-link {
+  margin: 20px auto;
+}
+.notloggedin .notloggedinBox .acct-link a {
+  display: inline-block;
+  padding: 8px 15px 10px;
+  border-radius: 20px;
+  background: var(--main);
+  color: var(--white);
+  font-family: var(--poppins);
+}
+.notloggedin .notloggedinBox .acct-link a:active {
+  transform: scale(1.05);
+}
+.notloggedin .notloggedinBox .acct-link a:hover {
+  background: var(--main-2);
 }
