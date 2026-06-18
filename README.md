@@ -1,4 +1,3 @@
-
 # Mixtax Store
 
 Mixtax Store is a modern e-commerce web application designed to make online shopping simple, fast, and affordable. Users can browse products, add items to their cart, manage orders, and enjoy a seamless shopping experience through a clean and responsive user interface.
