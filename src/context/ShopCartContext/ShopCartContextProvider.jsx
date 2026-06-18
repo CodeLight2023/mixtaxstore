@@ -22,16 +22,21 @@ function ShopCartContextProvider(props) {
     const category = ["All", ...new Set(products.map((product) => product.category)), "Men", "Women"]
 
     const filteredCategory = selectedCategory === "All" ? products : products.filter((product) => product.category == selectedCategory)
-
+    
     const existingCartItem = (id) => {
         return cartItems.find(item => item.id === id)
     }
+    
+    const total = cartItems.reduce((sum, item) => {
+            return sum + item.price * item.quantity;
+    }, 0);
     
     const addToCart = (id) => {
         const currentUserName = currentUser ? currentUser.fullName : "Guest";
         const cartContent = JSON.parse(localStorage.getItem("cartContent")) || []
         const existingItem = cartContent.find(item => item.id == id && item.user == currentUserName)
         const product = products.find(product => product.id === id)
+
         if(!product) return;
 
         if (!currentUser) {
@@ -106,7 +111,7 @@ function ShopCartContextProvider(props) {
             );
             return;
         }
-        
+
         const updatedCart = cartContent.map(currentItem => {
             if (currentItem.id == id && currentItem.user == currentUserName) {
                 return {...currentItem, quantity: currentItem.quantity - 1};
@@ -143,7 +148,7 @@ function ShopCartContextProvider(props) {
         setConfirmAlertActiveProductId(null);
     }
     return (
-        <ShopCartContext.Provider value={{ cartQuantity, selectedCategory, cartItems, handleSeleectedCategory, category, filteredCategory, addToCart, existingCartItem, handleQuantityIncrement, handleQuantityDecrement, removeFromCart, showConfirmAlert, closeConfirmAlert, ConfirmAlertMsg, ConfirmAlertType, ConfirmAlertActiveProductId}}>
+        <ShopCartContext.Provider value={{ total, cartQuantity, selectedCategory, cartItems, handleSeleectedCategory, category, filteredCategory, addToCart, existingCartItem, handleQuantityIncrement, handleQuantityDecrement, removeFromCart, showConfirmAlert, closeConfirmAlert, ConfirmAlertMsg, ConfirmAlertType, ConfirmAlertActiveProductId}}>
             {props.children}
         </ShopCartContext.Provider>
     )
