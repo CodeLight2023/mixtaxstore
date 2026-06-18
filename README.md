@@ -1,16 +1,82 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Mixtax Store
 
-Currently, two official plugins are available:
+Mixtax Store is a modern e-commerce web application designed to make online shopping simple, fast, and affordable. Users can browse products, add items to their cart, manage orders, and enjoy a seamless shopping experience through a clean and responsive user interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Modern and responsive UI
+- Product browsing and discovery
+- Shopping cart functionality
+- User authentication
+- Fast navigation with React Router
+- Clean and intuitive shopping experience
+- Mobile-friendly design
+- Easy product ordering and checkout workflow
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- CSS3
+- JavaScript (ES6+)
+- React Router DOM
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/CodeLight2023/mixtaxstore.git
+cd mixtaxstore
+npm install
+```
+
+### Run Development Server
+
+```bash
+npm run dev
+```
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+## Project Structure
+
+```text
+src/
+├── assets/
+├── components/
+├── pages/
+├── context/
+├── hooks/
+├── data/
+├── App.jsx
+└── main.jsx
+```
+
+## Vision
+
+Mixtax Store aims to provide a fast, affordable, and user-friendly shopping platform where buying and selling products becomes seamless for everyone.
+
+## Author
+
+**CodeLight**
+
+- GitHub: https://github.com/CodeLight2023
+
+## Live Demo
+
+https://mixtaxstore.vercel.app/
+
+## License
+
+This project is open-source and available under the MIT License.
