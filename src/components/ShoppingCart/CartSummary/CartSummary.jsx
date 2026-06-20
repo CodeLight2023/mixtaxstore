@@ -20,7 +20,7 @@ function CartSummary() {
                         </div>
                         <div className="subtotal">
                             <div className="subtotal-head">
-                                <h4>Subtotal (3)</h4>
+                                <h4>Subtotal</h4>
                             </div>
                             <div className="subtotal-price">
                                 <h5>N50000</h5>

@@ -39,6 +39,9 @@
     align-items: center;
     border-bottom: 1px solid #33333357;
 }
+.shoppinngCartContainer .shoppingCart .cart-container .cart-item .cart:last-child {
+    border-bottom: none;
+} 
 .shoppinngCartContainer .shoppingCart .cart-container .cart-item .cart .cart-info {
     display: flex;
     gap: 30px;
