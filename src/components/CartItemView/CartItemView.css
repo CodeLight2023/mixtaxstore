@@ -1,0 +1,186 @@
+.cartViewContainer {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    margin: 20px 0;
+}
+.cartViewContainer .cart-head {
+    margin: 20px 30px 10px;
+}
+.cartViewContainer .cart-head h2 {
+    font-family: var(--inter);
+    font-size: 25px;
+}
+.cartViewContainer .cart-item {
+    position: relative;
+    /* margin: 20px 0; */
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 20px 20px;
+}
+.cartViewContainer .cart-item .cart {
+    position: relative;
+    margin: 10px 0;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #33333357;
+}
+.cartViewContainer .cart-item .cart:last-child {
+    border-bottom: none;
+} 
+.cartViewContainer .cart-item .cart .cart-info {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.cartViewContainer .cart-item .cart .cart-info .cart-img {
+    width: 400px;
+    height: 400px;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+}
+.cartViewContainer .cart-item .cart .cart-info .cart-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.cartViewContainer .cart-item .cart .cart-info .cart-details {
+    margin: 5px 0;
+}
+.cartViewContainer .cart-item .cart .cart-info .cart-details h2 {
+    font-size: 25px;
+    color: var(--dark);
+    padding: 10px 0;
+    font-family: var(--inter);
+}
+.cartViewContainer .cart-item .cart .cart-info .cart-details h2 span {
+    color: #555555ab;
+    font-size: 12px;
+    font-family: var(--poppins);
+    padding: 0 5px;
+}
+.cartViewContainer .cart-item .cart .cart-info .category {
+    position: absolute;
+    top: 0;
+    right: 4%;
+    display: inline-block;
+    padding: 8px 15px 10px;
+    border-radius: 30px;
+    background: var(--main);
+    color: var(--white);
+}
+.cartViewContainer .cart-item .cart .cart-info .cart-details p {
+    font-size: 16px;
+    font-family: var(--poppins);
+    color: var(--black);
+    padding: 8px 0;
+}
+.cartViewContainer .cart-item .cart .cart-info .btn {
+    margin: 10px 0;
+}
+.cartViewContainer .cart-item .cart .cart-info .btn button {
+    width: 100%;
+    height: auto;
+    padding: 15px 10px;
+    background: var(--main-2);
+    color: var(--white);
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+.cartViewContainer .cart-item .cart .cart-info .btn button.delete {
+    background: rgba(249, 31, 31, 0.847);
+}
+.cartViewContainer .cart-item .cart .cart-info .btn button.delete:hover {
+    background: #333;
+}
+.cartViewContainer .cart-item .cart .cart-info .btn button:hover {
+    background: var(--main);
+}
+.cartViewContainer .cart-item .cart .cart-quanp {
+    margin: 25px 0;
+}
+.cartViewContainer .cart-item .cart .cart-quanp .price {
+    margin: 15px 0;
+}
+.cartViewContainer .cart-item .cart .cart-quanp .price h4 {
+    font-size: 25px;
+    color: var(--dark);
+}
+.cartViewContainer .cart-item .cart .cart-quanp .quantity {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+.cartViewContainer .cart-item .cart .cart-quanp button {
+    display: inline-block;
+    padding: 8px 10px;
+    color: var(--white);
+    cursor: pointer;
+    text-align: center;
+    background: #ddd;
+    font-size: 18px;
+    font-family: var(--poppins);
+}
+.cartViewContainer .cart-item .cart .cart-quanp span {
+    font-size: 20px;
+    font-family: var(--inter);
+}
+.cartViewContainer .cart-item .cart .cart-quanp button.add:hover {
+    background: var(--main);
+}
+.cartViewContainer .cart-item .cart .cart-quanp button.remove:hover {
+    background: #f54809;
+}
+.cartViewContainer .cart-item .cart .cart-del {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.cartViewContainer .cart-item .cart .cart-del button {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.cartViewContainer .cart-item .cart .cart-del button svg {
+    fill: var(--black);
+    font-size: 17px;
+}
+.cartViewContainer .cart-item .cart .cart-del button:hover {
+    background: #f54809;
+}
+.cartViewContainer .cart-item .cart .cart-del button:hover svg {
+    fill: var(--white);
+}
+@media (max-width: 741px) {
+    .cartViewContainer .cart-item .cart .cart-info .category {
+        position: absolute;
+        top: 5%;
+        right: 8%;
+    }
+    .cartViewContainer .cart-item .cart .cart-info .cart-details {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px auto;
+    }
+}

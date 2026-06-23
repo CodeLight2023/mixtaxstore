@@ -1,5 +1,6 @@
 import { RiDeleteBinLine } from "react-icons/ri"
 import useShopCart from "../../../hook/useShopCart"
+import { Link } from "react-router-dom"
 
 function CartItem() {
     const { cartItems, showConfirmAlert, handleQuantityIncrement, handleQuantityDecrement } = useShopCart()
@@ -14,7 +15,9 @@ function CartItem() {
                             </div>
                             <div className="cart-details">
                                 <h2>
-                                    {item.name}
+                                    <Link to={`/shop/${item.id}`}>
+                                        {item.name}
+                                    </Link>
                                     {item.quantity > 1 && (
                                         <span>x {item.quantity}</span>
                                     )}

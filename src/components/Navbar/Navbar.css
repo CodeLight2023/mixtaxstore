@@ -133,9 +133,13 @@ header nav .profile-box .profile {
         padding: 20px;
         box-sizing: border-box;
         margin: 0;
+        opacity: 0;
+        visibility: hidden;
     }
     header nav.active .menuContent ul {
         left: 0;
+        opacity: 1;
+        visibility:visible;
     }
     header nav .menuContent ul li {
         display: block;

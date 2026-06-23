@@ -89,6 +89,9 @@ export const products = [
         image: samsung,
     },
 ]
+
+
+
 export const assets = {
     hero,
     heroImg,

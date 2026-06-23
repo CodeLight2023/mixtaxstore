@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom"
 import { assets } from "../../data/data"
 import useAuthContext from "../../hook/useAuthContext"
 import useShopCart from "../../hook/useShopCart"
 import ConfirmWarningPopup from "../AlertPopup/ConfirmWarningPopup"
 import './Shop.css'
+import { Helmet } from "react-helmet-async"
 function Shop() {
     
     const { category, selectedCategory, handleSeleectedCategory, filteredCategory, addToCart, existingCartItem, showConfirmAlert} = useShopCart()
@@ -12,6 +14,10 @@ function Shop() {
     
     return (
         <>
+            <Helmet>
+                <title>Shop | Mixtax Store</title>
+            </Helmet>
+
             <section id="shop">
                 <div className="heading">
                     <h1>Shop</h1>
@@ -32,7 +38,7 @@ function Shop() {
                                     <img src={product.image} alt={product.image} draggable='false' loading="lazy" />
                                 </div>
                                 <div className="product-details">
-                                    <h2>{product.name}</h2>
+                                    <h2><Link to={`/shop/${product.id}`}>{product.name}</Link></h2>
                                     <p>{product.description}</p>
                                     <div className="price">
                                         <h3>NGN{product.price}</h3>

@@ -65,6 +65,12 @@
     font-size: 18px;
     padding: 5px;
 }
+#shop .product-container .products .product-details h2 a {
+    color: var(--dark);
+}
+#shop .product-container .products .product-details h2:hover a {
+    color: var(--main);
+}
 #shop .product-container .products .product-details p {
     font-size: 15px;
     color: var(--black);

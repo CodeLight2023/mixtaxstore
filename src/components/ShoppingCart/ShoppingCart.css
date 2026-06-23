@@ -67,6 +67,12 @@
     padding: 10px;
     font-family: var(--inter);
 }
+.shoppinngCartContainer .shoppingCart .cart-container .cart-item .cart .cart-info .cart-details h2 a {
+    color: var(--dark);
+}
+.shoppinngCartContainer .shoppingCart .cart-container .cart-item .cart .cart-info .cart-details h2:hover a {
+    color: var(--main);
+}
 .shoppinngCartContainer .shoppingCart .cart-container .cart-item .cart .cart-info .cart-details h2 span {
     color: #555555ab;
     font-size: 12px;

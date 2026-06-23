@@ -11,12 +11,16 @@ import Error from "./error/Error"
 import Construction from "./pages/PageOnConstruction/Construction"
 import ShopCartContextProvider from "./context/ShopCartContext/ShopCartContextProvider"
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart"
+import CartItemView from "./components/CartItemView/CartItemView"
 
 const router = createBrowserRouter (
   createRoutesFromElements (
     <Route path="/" element={<RootLayout />} errorElement={<Error />}>
       <Route index element={<Home />} />
-      <Route path="shop" element={<ShopPage />} />
+      <Route path="shop">
+        <Route index element={<ShopPage />} />
+        <Route path=":urlId" element={<CartItemView />} />
+      </Route>
       <Route path="account" element={<Account />} />
       <Route path="cart" element={<ShoppingCart />} />
       
