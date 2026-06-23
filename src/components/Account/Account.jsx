@@ -5,6 +5,7 @@ import { useState } from 'react'
 import useAuthContext from '../../hook/useAuthContext'
 import AlertPopup from '../AlertPopup/AlertPopup'
 import useAlertContext from '../../hook/useAlertContext'
+import { Helmet } from 'react-helmet-async'
 function Account() {
     const { currentState, handleInState, handleUpState } = useAccountContext()
     const { login } = useAuthContext();
@@ -60,6 +61,13 @@ function Account() {
 
     return (
         <>
+            <Helmet>
+                {currentState === "Sign In" ? (
+                    <title> Account - Sign In | Mixtax Store </title>
+                ) : (
+                    <title> Account - Sign Up | Mixtax Store </title>
+                )}
+            </Helmet>
             <section id="account">
                 <div className="form-container">
                     <form onSubmit={handleSubmit}>
