@@ -4,7 +4,6 @@ import useAuthContext from "../../hook/useAuthContext"
 import useShopCart from "../../hook/useShopCart"
 import ConfirmWarningPopup from "../AlertPopup/ConfirmWarningPopup"
 import './Shop.css'
-import { Helmet } from "react-helmet-async"
 function Shop() {
     
     const { category, selectedCategory, handleSeleectedCategory, filteredCategory, addToCart, existingCartItem, showConfirmAlert} = useShopCart()
@@ -14,10 +13,6 @@ function Shop() {
     
     return (
         <>
-            <Helmet>
-                <title>Shop | Mixtax Store</title>
-            </Helmet>
-
             <section id="shop">
                 <div className="heading">
                     <h1>Shop</h1>
