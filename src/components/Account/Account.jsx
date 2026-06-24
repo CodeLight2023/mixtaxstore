@@ -62,11 +62,9 @@ function Account() {
     return (
         <>
             <Helmet>
-                {currentState === "Sign In" ? (
-                    <title> Account - Sign In | Mixtax Store </title>
-                ) : (
-                    <title> Account - Sign Up | Mixtax Store </title>
-                )}
+                <title>
+                    { currentState === "Sign In" ? "Account - Sign In | Mixtax Store" : currentState === "Sign Up" ? "Account - Sign Up | Mixtax Store" : "Account | Mixtax Store" }
+                </title>
             </Helmet>
             <section id="account">
                 <div className="form-container">
